@@ -2,6 +2,8 @@ import 'dart:io';
 
 void main() {
 
+  
+
   Map<int, String> menu = {
     1 : '상품 목록 보기',
     2 : '장바구니에 담기',
@@ -9,8 +11,27 @@ void main() {
     4 : '프로그램 종료'
   };
 
-  print();
+  print("----------------------------------------------------------------------");
+  print(menu);
+  print("----------------------------------------------------------------------");
 
+  int? number = int.parse(stdin.readLineSync()!);
+
+
+  switch (number){
+    case 1:
+      print("1입니다");
+    case 2:
+      print("2입니다");
+    case 3:
+      print("3입니다");
+    case 4:
+      print("4입니다.");
+    default:
+    print("지원하지 않는 기능입니다. ! 다시 시도해 주세요 ..");
+  }
+  
+ 
   // ShoppingMall object = ShoppingMall();
   // object.showProducts();
 
