@@ -2,7 +2,8 @@ import 'dart:io';
 
 void main() {
 
-  
+  Product product = Product();
+  //print(product.products);
 
   Map<int, String> menu = {
     1 : '상품 목록 보기',
@@ -11,32 +12,47 @@ void main() {
     4 : '프로그램 종료'
   };
 
-  print("----------------------------------------------------------------------");
-  print(menu);
-  print("----------------------------------------------------------------------");
 
-  int? number = int.parse(stdin.readLineSync()!);
+  
+
+  // do {
+  //   print("----------------------------------------------------------------------");
+  //   print(menu);
+  //   print("----------------------------------------------------------------------");
+  // } while (number == 1){
+  //   print("성공입니다.");
+  // }
 
 
-  switch (number){
-    case 1:
-      print("1입니다");
-    case 2:
-      print("2입니다");
-    case 3:
-      print("3입니다");
-    case 4:
-      print("4입니다.");
-    default:
-    print("지원하지 않는 기능입니다. ! 다시 시도해 주세요 ..");
+
+  while (isRun) {
+    print(
+        "----------------------------------------------------------------------");
+    print(menu);
+    print(
+        "----------------------------------------------------------------------");
+
+    int? number = int.parse(stdin.readLineSync()!);
+    switch (number) {
+      case 1:
+        print(product.products);
+        break;
+      case 2:
+        print("2입니다");
+      case 3:
+        print("3입니다");
+      case 4:
+        print("4입니다.");
+      default:
+        print("지원하지 않는 기능입니다. ! 다시 시도해 주세요 ..");
+    }
   }
   
  
   // ShoppingMall object = ShoppingMall();
   // object.showProducts();
 
-  // Product product = Product();
-  // print(product.products);
+  
 }
 
 
@@ -62,4 +78,3 @@ class Product{
     };
 
 }
-// ??????????
