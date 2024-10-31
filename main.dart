@@ -1,7 +1,7 @@
 import 'dart:io';
 
 //쇼핑몰을 정의하기 위한 클래스
-class ShoppingMall extends Product{
+class ShoppingMall {
   ShoppingMall(Pname, Pprice);
 
 // addToCart()
@@ -42,18 +42,18 @@ void main() {
     print(
         "----------------------------------------------------------------------");
 
-    int? number = int.parse(stdin.readLineSync()!);
+    String? number = stdin.readLineSync()!;
 
     switch (number) {
-      case 1:
+      case '1':
         for (i = 0; i < Pname.length; i++) {
           print(Pname[i]+"/"+Pprice[i].toString()+"원");
         }
-      case 2:
+      case '2':
         print("2입니다");
-      case 3:
+      case '3':
         print("3입니다");
-      case 4:
+      case '4':
         print("4입니다.");
       default:
         print("지원하지 않는 기능입니다. ! 다시 시도해 주세요 ..");
