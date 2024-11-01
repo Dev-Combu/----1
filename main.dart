@@ -1,7 +1,7 @@
 import 'dart:io';
 
 //쇼핑몰을 정의하기 위한 클래스
-class ShoppingMall{
+class ShoppingMall {
   List<Product> products = [
     Product("셔츠", 45000),
     Product("원피스", 30000),
@@ -12,37 +12,39 @@ class ShoppingMall{
 
   int totalPrice = 0;
 
-  
-  void showProducts(){ //상품 목록 출력 함수
+  void showProducts() {
+    //상품 목록 출력 함수
     for (int i = 0; i < products.length; i++) {
-          print(products[i].Pname +  "/" + products[i].Pprice.toString() + "원");
-        }
+      print(products[i].Pname + "/" + products[i].Pprice.toString() + "원");
+    }
   }
 
-  void addToCart(){ // 상품을 장바구니에 담는 메서드
-    // try{
-    int i;
-      String? inumber = stdin.readLineSync()!;
-      if (products.any((products) => products.Pname==inumber)==false){
-          print("입력값이 올바르지 않아요1");
-        }else{
-          print(products[2].Pname);
-          int? sdnumber = int.parse(stdin.readLineSync()!);
-          if(sdnumber <= 0){
-            print("입력값이 올바르지 않아요2");
-          }else{
-           // totalPrice +=products???Pprice*sdnumber;
-            print("장바구니에 상품이 담겼어요");
-          }
-        }
-    // }catch(e){
-    //   print("입력값이 올바르지 않아요3");
-    // }
-    
+  void addToCart() {
+    // 상품을 장바구니에 담는 메서드
 
+    try{
+    String? inumber = stdin.readLineSync()!;
+    Product product =
+        products.firstWhere((product) => product.Pname == inumber);
+
+    if (products.any((products) => products.Pname == inumber) == false) {
+      print("입력값이 올바르지 않아요1");
+    } else {
+      int? sdnumber = int.parse(stdin.readLineSync()!);
+      if (sdnumber <= 0) {
+        print("입력값이 올바르지 않아요2");
+      } else {
+        totalPrice += (product.Pprice * sdnumber);
+        print("장바구니에 상품이 담겼어요");
+      }
+    }
+    }catch(e){
+      print("입력값이 올바르지 않아요3");
+    }
   }
 
-  void showTotal(){ // 장바구니에 담은 상품의 총 가격을 출력하는 메서드
+  void showTotal() {
+    // 장바구니에 담은 상품의 총 가격을 출력하는 메서드
     print("장바구니에 $totalPrice원 어치를 담으셨네요.");
   }
 }
@@ -53,15 +55,11 @@ class Product {
   String Pname;
   int Pprice;
 
-   Product(this.Pname, this.Pprice);
+  Product(this.Pname, this.Pprice);
 }
 
 void main() {
-
   var isRun = true;
-  // Product product = Product();
-  // var Pname = product.Pname;
-  // var Pprice = product.Pprice;
   ShoppingMall shoppingMall = ShoppingMall();
 
   Map<int, String> menu = {
